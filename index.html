@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Goods-In Check</title>
+<meta name="description" content="Parts on the receiving bench checked in plain code against the PO line and the release document. Every check points at the field it read; anything unreadable waits for the inspector.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f2f4f3">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f3272">
+<link rel="icon" href="data:,">
+<link rel="preload" href="fonts/sofia-sans-semi-condensed.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=1">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="g-delta" viewBox="0 0 16 16"><path d="M8 2.2 14.6 13.6H1.4z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+  <symbol id="g-check" viewBox="0 0 16 16"><path d="M2.8 8.6l3.3 3.3L13.2 4.4" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square"/></symbol>
+  <symbol id="g-none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2.2 2.2"/></symbol>
+  <symbol id="g-lead" viewBox="0 0 14 14"><path d="M1.5 12.5 9 5M5.2 4.2h4.6v4.6" fill="none" stroke="currentColor" stroke-width="1.4"/></symbol>
+</svg>
+
+<main class="sheet">
+  <header class="strip">
+    <span class="cap">Goods-In Check</span>
+    <span class="cap sample">Sample data</span>
+  </header>
+
+  <section class="hero" aria-labelledby="h">
+    <h1 id="h">Every part on the bench, held to its PO and its paperwork.</h1>
+    <p class="fig" id="summary" role="status"></p>
+    <div class="chain" id="chain" role="img"></div>
+    <p class="legend" id="legend" aria-hidden="true"></p>
+    <button class="src why-btn" type="button" id="why-btn" aria-expanded="false" aria-controls="notes">How each line is checked</button>
+    <h2 class="cap notes-h">Notes</h2>
+    <ol class="notes" id="notes" hidden>
+      <li>The release document must be in the box and of a kind the PO line accepts.</li>
+      <li>Part number exactly as ordered, dash number included, or an approved alternate written on the PO line.</li>
+      <li>Quantity counted, quantity on the document and quantity ordered agree.</li>
+      <li>Status/Work satisfies the condition ordered. Overhauled needs Overhauled. Serviceable takes Overhauled, Repaired or Inspected/Tested. This is the shop's own rule.</li>
+      <li>Serial on the data plate matches the document. Shelf life left at receipt meets the PO minimum.</li>
+      <li>A tracking number already on an earlier receipt is not accepted twice.</li>
+      <li>Anything that cannot be read waits for the inspector. Nothing is guessed, and a person releases every line.</li>
+    </ol>
+  </section>
+
+  <section class="sched" aria-label="Lines on the bench">
+    <ol class="items" id="items"></ol>
+  </section>
+
+  <section class="tool" id="out-tool" aria-labelledby="out-h">
+    <h2 id="out-h">Stores receipt</h2>
+    <p class="tool-sub" id="out-sub"></p>
+    <pre class="csv" id="out-csv"></pre>
+    <div class="actions">
+      <a class="btn primary cap" id="out-dl" download="stores-receipt.csv" href="#">Download CSV</a>
+      <button type="button" id="reset" class="btn ghost cap">Reset sample</button>
+    </div>
+  </section>
+
+  <section class="tool" id="docs" aria-labelledby="docs-h">
+    <h2 id="docs-h">The paperwork</h2>
+    <p class="tool-sub">What the checks read. A field you open from a line is outlined here. <span class="fname" id="doc-file"></span></p>
+    <div class="tabs" id="doc-tabs" role="group" aria-label="Files"></div>
+    <div class="grid-scroll" id="doc-grid"></div>
+  </section>
+
+  <footer>
+    <dl class="tb">
+      <div><dt class="cap">Title</dt><dd>Goods-In Check</dd></div>
+      <div><dt class="cap">For</dt><dd>Receiving inspectors and buyers at aircraft maintenance shops.</dd></div>
+      <div><dt class="cap">Data</dt><dd>Made-up shop, vendors, part numbers, serials and documents.</dd></div>
+      <div class="half"><dt class="cap">Built by</dt><dd>Arnold Ikpemosi Adeyemi</dd></div>
+      <div class="half"><dt class="cap">Link</dt><dd><a href="https://ikpemosi.work">ikpemosi.work</a></dd></div>
+    </dl>
+  </footer>
+</main>
+<script type="module" src="app.js?v=1"></script>
+</body>
+</html>

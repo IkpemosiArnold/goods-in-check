@@ -1,0 +1,9 @@
+{
+  "name": "goods-in-check",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Parts on the receiving bench checked in plain code against the PO line and the release document: part number, quantity, condition, serial, shelf life and document reuse. Every check points at its field.",
+  "scripts": { "test": "node --test" },
+  "license": "MIT"
+}
